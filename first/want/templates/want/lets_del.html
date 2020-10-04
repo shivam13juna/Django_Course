@@ -1,0 +1,29 @@
+{% if things %}
+    <h3> These are the things that are currently in the database:</h3>
+    <ol>
+    {% for thing in things %}
+        <h4> {{thing.id}}. {{ thing.item_name }} </h4>
+    {% endfor %}
+    </ol>
+{% else %}
+    <h3> I don't want anything </h3>
+{% endif %}
+
+*****************************************************************************
+<h3> Enter the item id of item you want to delete:</h3>
+
+<form method="post">
+{% csrf_token %}
+<table>
+{{ form.as_table }}
+</table>
+<input type = "submit" value = "Submit">
+</form>
+
+<a href="{% url 'want:lets_add' %}">Add Items</a>
+<br>
+<a href="{% url 'want:lets_update' %}">Update Items</a>
+
+{% comment %} {{ form.errors }} {% endcomment %}
+
+{% comment %} 976497 {% endcomment %}

@@ -1,0 +1,16 @@
+{% if things %}
+    <h3> These are the things that I want:</h3>
+    <ol>
+    {% for thing in things %}
+        <h4> {{thing.id}}. {{ thing.item_name }} </h4>
+    {% endfor %}
+    </ol>
+{% else %}
+    <h3> I don't want anything </h3>
+{% endif %}
+
+<a href="{% url 'want:lets_add' %}">Add items</a>
+<br>
+<a href="{% url 'want:lets_del' %}">Delete Items</a>
+<br>
+<a href="{% url 'want:lets_update' %}">Update Items</a>
