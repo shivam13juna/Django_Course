@@ -8,8 +8,8 @@ from .forms import add_items, del_items, update_items
 
 def index(request):
 
-    return HttpResponse("""<h1>Let's get it done!, you are in WANT view</h1>
-                           <a href = {% url }""")
+    return HttpResponse(request.session.items())
+    # return HttpResponse("<h1>Let's get it done!, you are in WANT view</h1>" + str(request.session.items()))
 
 
 def my_list(request):
